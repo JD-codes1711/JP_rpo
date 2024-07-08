@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let arr=[];
+    let inp1=document.createElement("input");
+    let inp2=document.createElement("input");
+    let btn=document.createElement("button");
+    btn.innerText="submit";
+    btn.addEventListener("click",submit);
+    let body=document.querySelector("body");
+    body.append(inp1,inp2,btn);
+    function submit(){
+        let obj={
+            data:inp.value,
+            image:inp2.value
+        }
+        arr.push(obj);
+        console.log(arr);
+    }
+</script>
+</html>

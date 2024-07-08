@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="homePage.html">HomePage</a>
+    <a href="signUp.html">SignUp</a>
+    <a href="signIn.html">SignIn</a>
+    <a href="addProd.html">AddProduct</a>
+    <br></br>
+    <h1>SignUp Page</h1>
+    <br><br>
+    <input type="text" placeholder="User name" id="userName">
+    <br><br>
+    <input type="password" name="" placeholder="Password" id="pass">
+    <br><br>
+    <button onclick="signUpFun()">SignUp</button>
+</body>
+<script>
+    let signUpData=JSON.parse(localStorage.getItem("signUpArr")) || [];
+    let userName=document.querySelector("#userName")
+    let pass=document.querySelector("#pass")
+    let i;
+
+    function signUpFun(){
+        let flag=false;
+        let obj={
+            userName:userName.value,
+            pass:pass.value
+        }
+        for(i=0;i<signUpData.length;i++){
+            if(signUpData[i].userName === obj.userName){
+                flag=true;
+                alert("User Already Exists!!")
+            }
+        }
+        if(flag === false){
+            if(obj.userName !== "" && obj.pass !== ""){
+                signUpData.push(obj)
+                localStorage.setItem("signUpArr",JSON.stringify(signUpData))
+            }
+            else{
+                alert("Username or Password cannot be empty!!")
+            }
+        }
+        console.log(signUpData)
+    }
+</script>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="homePage.html">HomePage</a>
+    <a href="signUp.html">SignUp</a>
+    <a href="signIn.html">SignIn</a>
+    <a href="addProd.html">AddProduct</a>
+    <br><br>
+    <h1>SignIn Page</h1>
+    <br><br>
+    <input type="text" placeholder="User name" id="userName">
+    <br><br>
+    <input type="password" name="" placeholder="Password" id="pass">
+    <br><br>
+    <button onclick="signInFun()">SignIn</button>
+</body>
+</html>
+<script>
+    let signUpData=JSON.parse(localStorage.getItem("signUpArr")) || [];
+    let flag=false
+    let i
+    let userName=document.querySelector("#userName")
+    let pass=document.querySelector("#pass")
+    function signInFun(){
+        for(i=0;i<signUpData.length;i++){
+            if(signUpData[i].userName === userName.value && signUpData[i].pass === pass.value){
+                alert("SignIn Success!!")
+                flag=true
+                break
+            }
+        }
+        if(flag === false){
+            alert("SignIn Failed!!")
+        }
+    }
+</script>
