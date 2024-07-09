@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="homePage.html">HomePage</a>
+    <a href="signUp.html">SignUp</a>
+    <a href="signIn.html">SignIn</a>
+    <a href="addProd.html">AddProduct</a>
+    <br></br>
+    <h1>Add Product Page</h1>
+    <br><br>
+    <input type="text" placeholder="Product Name" id="prodName">
+    <br><br>
+    <input type="url" name="" placeholder="Product Picture" id="pic">
+    <br><br>
+    <input type="number" placeholder="Product Price" id="price">
+    <br><br>
+    <button onclick="addProdFun()">Add Product</button>
+</body>
+</html>
+<script>
+    let productName=document.querySelector("#prodName")
+    let picture=document.querySelector("#pic")
+    let productPrice=document.querySelector("#price")
+    let i;
+
+    function addProdFun(){
+        let obj={
+            userName:userName.value,
+            pass:pass.value
+        }
+        if(obj.userName !== "" && obj.pass !== ""){
+            signUpData.push(obj)
+            localStorage.setItem("signUpArr",JSON.stringify(signUpData))
+        }
+        else{
+                alert("Username or Password cannot be empty!!")
+            }
+        }
+        console.log(signUpData)
+    }
+</script>

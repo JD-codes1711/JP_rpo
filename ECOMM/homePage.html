@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="homePage.html">HomePage</a>
+    <a href="signUp.html">SignUp</a>
+    <a href="signIn.html">SignIn</a>
+    <a href="addProd.html">AddProduct</a>
+    <br></br>
+    <h1>Home Page</h1>
+    <br><br>
+</body>
+</html>
+<script>
+    let body=document.querySelector("body");
+    async function fetchData(){
+        let res=await fetch("https://fakestoreapi.com/products");
+        let data=await res.json();
+        // console.log(res);
+        // console.log(data); 
+         display(data);
+    }
+    // async function fetchData(){
+    //     try{
+    //         let res=await fetch("https://fakestoreapi.com/products");
+    //         let data=await res.json();
+    //         // console.log(res);
+    //         //console.log(data); 
+    //         display(data);
+    //     }catch(err){
+    //         console.log(err);
+    //     }
+    // }
+    fetchData();
+    function display(data){
+        data.forEach(element => {
+            let div=document.createElement("div");
+            let title=document.createElement("h1");
+            title.innerText=element.title;
+            title.style.wordWrap="a"
+            let desc=document.createElement("p");
+            desc.innerText=element.description;
+            let img=document.createElement("img");
+            img.src=element.image;
+            img.style.width="50px";
+            let price=document.createElement("p");
+            price.innerText=element.price;
+            let rate=document.createElement("p");
+            rate.innerText=element.rating.rate;
+            div.append(title,desc,img,price,rate);
+            body.append(div);
+        });
+       /* data.map(element=>{
+            console.log(element,"map")
+        });*/
+    }
+</script>
